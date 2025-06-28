@@ -290,7 +290,7 @@ fn main() {
     println!("\n--- Producer-Consumer Pattern ---");
     
     let (tx, rx) = mpsc::channel();
-    let buffer_size = 5;
+    let _buffer_size = 5; // Unused in this simple example, but would be used for bounded channels
     
     // Producer thread
     let producer = thread::spawn(move || {

@@ -6,8 +6,7 @@
 
 use std::env;
 use std::fs::{self, File, OpenOptions};
-use std::io::{self, Read, Write, BufRead, BufReader, BufWriter};
-use std::path::Path;
+use std::io::{self, Write, BufRead, BufReader, BufWriter};
 use std::process::Command;
 use std::time::{SystemTime, UNIX_EPOCH, Duration, Instant};
 use std::thread;

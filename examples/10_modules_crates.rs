@@ -272,6 +272,11 @@ fn main() {
     println!("Open docs with: cargo doc --open");
     println!("Documentation comments start with ///");
     
+    // === CONDITIONAL COMPILATION DEMO ===
+    
+    println!("\n--- Conditional Compilation ---");
+    platform_specific(); // This function is defined differently for each platform
+    
     println!("\n=== Key Takeaways ===");
     println!("• Modules organize code into logical units");
     println!("• Use 'pub' keyword to make items public");
@@ -281,6 +286,7 @@ fn main() {
     println!("• Standard library provides many useful modules");
     println!("• Privacy rules enforce proper encapsulation");
     println!("• External crates extend functionality");
+    println!("• Conditional compilation allows platform-specific code");
 }
 
 // === INLINE MODULES ===

@@ -384,13 +384,14 @@ impl Summary for ShoppingList {
 
 impl Summary for Article {
     fn summarize(&self) -> String {
-        format!("{}, by {}", self.title, self.author)
+        format!("{}, by {} ({} chars)", self.title, self.author, self.content.len())
     }
 }
 
 impl Summary for Tweet {
     fn summarize(&self) -> String {
-        format!("{}: {}", self.username, self.content)
+        let status = if self.reply { "reply" } else if self.retweet { "retweet" } else { "original" };
+        format!("{}: {} [{}]", self.username, self.content, status)
     }
 }
 
