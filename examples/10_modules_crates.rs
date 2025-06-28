@@ -3,8 +3,34 @@
 //
 // To run this example: cargo run --example 10_modules_crates
 
-// Module declarations
-mod math_utils;
+// For this example, we'll include the math module inline rather than as a separate file
+// In a real project, you would organize modules in separate files
+mod math_utils {
+    /// Adds two numbers together
+    pub fn add(a: i32, b: i32) -> i32 {
+        a + b
+    }
+
+    /// Multiplies two numbers
+    pub fn multiply(a: i32, b: i32) -> i32 {
+        a * b
+    }
+
+    /// Custom error type for math operations
+    #[derive(Debug, PartialEq)]
+    pub enum MathError {
+        DivisionByZero,
+    }
+
+    /// Divides two floating point numbers
+    pub fn divide(a: f64, b: f64) -> Result<f64, MathError> {
+        if b == 0.0 {
+            Err(MathError::DivisionByZero)
+        } else {
+            Ok(a / b)
+        }
+    }
+}
 mod shapes {
     pub struct Circle {
         pub radius: f64,
@@ -54,7 +80,7 @@ use std::env;
 // Using items from our modules
 use shapes::Circle;
 use shapes::rectangle::Rectangle;
-use math_utils::{add, multiply, divide, MathError};
+use math_utils::{add, multiply, divide};
 
 fn main() {
     println!("=== Modules and Crates in Rust ===\n");
